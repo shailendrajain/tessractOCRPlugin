@@ -1,0 +1,66 @@
+{
+    "cordova-plugin-whitelist": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-whitelist@1"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-file": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-File"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-media": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-media@~2.1.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-camera": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-camera@~2.1.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "cordova-plugin-compat": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-compat"
+        },
+        "is_top_level": false,
+        "variables": {}
+    },
+    "cordova-plugin-android-permissions": {
+        "source": {
+            "type": "registry",
+            "id": "cordova-plugin-android-permissions@0.8.0"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com-ibm-tessract-ocr": {
+        "source": {
+            "type": "local",
+            "path": "C:\\OCR\\myexp\\com-ibm-tessract-ocr"
+        },
+        "is_top_level": true,
+        "variables": {}
+    },
+    "com.tessract.ocr": {
+        "source": {
+            "type": "local",
+            "path": "c:\\OCR\\CordovaTessractPlugin\\com-tessract-ocr"
+        },
+        "is_top_level": true,
+        "variables": {}
+    }
+}

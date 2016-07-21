@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.tessract.ocr": {
+            "PACKAGE_NAME": "com.tessract.demo"
+        },
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "com.tessract.demo"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.tessract.demo"
+        },
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.tessract.demo"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.tessract.demo"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "com.tessract.demo"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.tessract.demo"
+        }
+    },
+    "dependent_plugins": {}
+}

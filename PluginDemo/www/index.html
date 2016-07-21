@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Capture Photo</title>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1"/>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" charset="utf-8">
+	
+    var pictureSource;   // picture source
+    var destinationType; // sets the format of returned value 
+    var permissions = null;
+	// Wait for PhoneGap to connect with the device
+    //
+    document.addEventListener("deviceready",onDeviceReady,false);
+    // PhoneGap is ready to be used!
+    //
+	 function nativePluginResultHandler (callback) { 
+                console.log ("ok: "+callback);
+
+				var ocrText = document.getElementById('textID');	
+				ocrText.innerHTML=callback;
+
+            }
+
+	// Code for Marshmallow Permission system 
+	// Without User permission You can not copy traineddata for OCR initialization	
+	function checkPermissions(){
+	
+		checkReadPermission();
+		checkWritePermission();
+
+		console.log("End of checkPermissions");
+	}
+	
+	function checkReadPermissionCallback(status) {
+		console.log("Shail checkReadPermissionCallback "); 
+
+		  if(!status.hasPermission) {
+			var errorCallback = function() {
+			  console.warn('READ_EXTERNAL_STORAGE permission is not turned on');
+			}
+		 
+			permissions.requestPermission(
+			  permissions.READ_EXTERNAL_STORAGE,
+			  function(status) {
+				if(!status.hasPermission) 
+					errorCallback();
+			
+			  },
+			  errorCallback);
+		  }
+		}
+		
+	function checkReadPermission(){
+	console.log("Shail checkReadPermission "); 
+	
+	permissions.hasPermission(permissions.READ_EXTERNAL_STORAGE, checkReadPermissionCallback, null);
+		 
+		
+	}
+	function checkwritePermissionCallback(status) {
+		console.log("Shail WriteStorage Permission Callback "); 
+		  if(!status.hasPermission) {
+			var errorCallback = function() {
+			  console.warn('WRITE_EXTERNAL_STORAGE permission is not turned on');
+			}
+		 
+			permissions.requestPermission(
+			  permissions.WRITE_EXTERNAL_STORAGE,
+			  function(status) {
+			  						console.log("Shail WriteStorage Permission status.hasPermission " + status.hasPermission); 
+
+				if(!status.hasPermission) 
+					errorCallback();
+					// We have Storage permissions now we can copy Traineddata
+					tessract.initTrainingData(
+					function(status) {console.log("init training data " + status);},
+					function(status) {console.log("init training data " + status);});
+						     
+			  },
+			  errorCallback);
+		  }
+		}
+		
+	function checkWritePermission(){
+	console.log("shail checkWritePermission");
+				
+		permissions.hasPermission(permissions.WRITE_EXTERNAL_STORAGE, checkwritePermissionCallback, null);
+		
+	}	
+	
+     
+	// Called when a photo is successfully retrieved
+    //
+    function onPhotoFileSuccess(imageData) {
+      // Get image handle
+      console.log("OCR FIle path : " +  JSON.stringify(imageData));
+      
+   	  // Get image handle
+      //
+      var smallImage = document.getElementById('smallImage');
+      // Unhide image elements
+      //
+      smallImage.style.display = 'block';
+      // Show the captured photo
+      // The inline CSS rules are used to resize the image
+      //
+      smallImage.src = imageData;
+	  
+	      
+       //onImageSuccess(imageData);
+		tessract.getText(imageData,nativePluginResultHandler,nativePluginResultHandler);
+ 
+    }
+	function captureOCRPhoto() {
+		// Quality 100 percent will give better results
+		navigator.camera.getPicture(onPhotoFileSuccess, onFail, { quality: 100, allowEdit: true,destinationType: Camera.DestinationType.FILE_URI });
+
+    }
+ 
+	function onFail(message) {
+      alert('Failed because: ' + message);
+    }
+	
+	// Entry point in Cordova application for any logic
+	
+    function onDeviceReady() {
+		var permissionFlag = navigator.userAgent.search('Android 6.')>0?true:false;
+
+		if(permissionFlag ){ // Android VErsion equal to or higher than 6.x --> Manifest permission will not  work , need explicit permission from user.
+			permissions = cordova.plugins.permissions;
+			checkPermissions();
+		}
+		else {		// Android VErsion lower than 6.x --> Manifest permission will work 
+				
+				tessract.initTrainingData(
+				function(status) {console.log("init training data " + status);},
+				function(status) {console.log("init training data " + status);});		
+		}
+		//init Camera properties
+        pictureSource=navigator.camera.PictureSourceType;
+        destinationType=navigator.camera.DestinationType;
+		
+		console.log("End of onDeviceReady");
+    }	
+		
+    </script>
+  </head>
+  <body>
+	
+    <button style="margin: 0 auto; height:40px" onclick="captureOCRPhoto();">Capture Photo for OCR </button> <br>
+	<p id="textID">RESULT PLACEHOLDER<p>
+    <img style="display:none;width:100%;height:auto;" id="smallImage" src="" />
+  </body>
+</html>
