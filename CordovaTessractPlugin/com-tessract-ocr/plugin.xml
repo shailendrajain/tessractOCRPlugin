@@ -73,6 +73,45 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 		<source-file src="src/com/googlecode/leptonica/android/Skew.java" target-dir="src/com/googlecode/leptonica/android" />  
 		<source-file src="src/com/googlecode/leptonica/android/WriteFile.java" target-dir="src/com/googlecode/leptonica/android" /> 	
 		<source-file src="src/raw/tessdata/eng.traineddata" target-dir="assets" />
+
+		<source-file src="src/libs/arm64-v8a/libjpgt.so" target-dir="libs/arm64-v8a" />
+		<source-file src="src/libs/arm64-v8a/liblept.so" target-dir="libs/arm64-v8a" />
+		<source-file src="src/libs/arm64-v8a/libpngt.so" target-dir="libs/arm64-v8a" />
+		<source-file src="src/libs/arm64-v8a/libtess.so" target-dir="libs/arm64-v8a" />
+
+		<source-file src="src/libs/armeabi/libjpgt.so" target-dir="libs/armeabi" />
+		<source-file src="src/libs/armeabi/liblept.so" target-dir="libs/armeabi" />
+		<source-file src="src/libs/armeabi/libpngt.so" target-dir="libs/armeabi" />
+		<source-file src="src/libs/armeabi/libtess.so" target-dir="libs/armeabi" />
+
+		<source-file src="src/libs/armeabi-v7a/libjpgt.so" target-dir="libs/armeabi-v7a" />
+		<source-file src="src/libs/armeabi-v7a/liblept.so" target-dir="libs/armeabi-v7a" />
+		<source-file src="src/libs/armeabi-v7a/libpngt.so" target-dir="libs/armeabi-v7a" />
+		<source-file src="src/libs/armeabi-v7a/libtess.so" target-dir="libs/armeabi-v7a" />
+		
+		<source-file src="src/libs/mips/libjpgt.so" target-dir="libs/mips" />
+		<source-file src="src/libs/mips/liblept.so" target-dir="libs/mips" />
+		<source-file src="src/libs/mips/libpngt.so" target-dir="libs/mips" />
+		<source-file src="src/libs/mips/libtess.so" target-dir="libs/mips" />
+		
+		<source-file src="src/libs/mips64/libjpgt.so" target-dir="libs/mips64" />
+		<source-file src="src/libs/mips64/liblept.so" target-dir="libs/mips64" />
+		<source-file src="src/libs/mips64/libpngt.so" target-dir="libs/mips64" />
+		<source-file src="src/libs/mips64/libtess.so" target-dir="libs/mips64" />
+		
+		<source-file src="src/libs/x86/libjpgt.so" target-dir="libs/x86" />
+		<source-file src="src/libs/x86/liblept.so" target-dir="libs/x86" />
+		<source-file src="src/libs/x86/libpngt.so" target-dir="libs/x86" />
+		<source-file src="src/libs/x86/libtess.so" target-dir="libs/x86" />
+		
+		
+		<source-file src="src/libs/x86_64/libjpgt.so" target-dir="libs/x86_64" />
+		<source-file src="src/libs/x86_64/liblept.so" target-dir="libs/x86_64" />
+		<source-file src="src/libs/x86_64/libpngt.so" target-dir="libs/x86_64" />
+		<source-file src="src/libs/x86_64/libtess.so" target-dir="libs/x86_64" />
+		
+
+		
     </platform>
 
 	<platform name="ios">
